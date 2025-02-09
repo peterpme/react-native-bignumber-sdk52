@@ -5,7 +5,12 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
+import { BN } from 'react-native-bignumber';
+
 export default function HomeScreen() {
+  const a = new BN(3274556)
+  const b = new BN(9856712)
+  const c = a.mul(b) // 32.276.355.419.872
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -49,6 +54,12 @@ export default function HomeScreen() {
           <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
           <ThemedText type="defaultSemiBold">app-example</ThemedText>.
         </ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+        <ThemedText type="subtitle">Step 4: Test BigNumber</ThemedText>
+        <ThemedText>a = {a.toString(10)}</ThemedText>
+        <ThemedText>b = {b.toString(10)}</ThemedText>
+        <ThemedText>c = {c.toString(10)}</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
